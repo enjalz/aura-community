@@ -1,0 +1,211 @@
+/* Gaya khusus tiap section di landing page: hero, tentang, layanan, dan seterusnya.
+   Dimuat setelah components.css. */
+
+/* Judul tengah di atas tiap section (judul + paragraf pembuka) */
+.section-header {
+  max-width: 640px;
+  margin: 0 auto var(--spacing-48);
+  text-align: center;
+}
+.section-header .text-lead {
+  margin: var(--spacing-16) 0 0;
+}
+
+/* Kotak abu-abu pengganti gambar. Nanti diganti gambar asli. */
+.img-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  background-color: rgba(46, 46, 46, 0.06);
+  border-radius: var(--radius-image);
+  color: var(--color-text-muted);
+  font-size: var(--text-body-sm);
+  text-align: center;
+}
+
+/* Gambar asli (dipakai nanti saat foto sudah ada): memenuhi kotak tanpa gepeng */
+.img-cover {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: var(--radius-image);
+}
+
+/* Hero: paragraf dibatasi lebarnya supaya nyaman dibaca */
+.hero__text {
+  max-width: 520px;
+  margin: var(--spacing-24) 0 0;
+}
+
+/* Paragraf utama berukuran lebih besar dengan warna teks penuh (dipakai di Tentang Kami) */
+.text-subheading {
+  font-size: var(--text-subheading);
+  line-height: 1.4;
+}
+
+/* Tentang Kami: kotak dua angka statistik */
+.stats {
+  display: flex;
+  padding: var(--spacing-24);
+}
+.stats__item {
+  flex: 1;
+}
+/* Garis pemisah tipis antara dua angka */
+.stats__item + .stats__item {
+  border-left: 1px solid var(--color-border);
+  padding-left: var(--spacing-24);
+}
+.stats__number {
+  font-size: 28px;
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+}
+.stats__label {
+  margin-top: var(--spacing-8);
+  font-size: var(--text-body-sm);
+  color: var(--color-text-muted);
+}
+
+/* Layanan: kotak ikon Blush Pink di atas judul kartu */
+.service-card__icon {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  margin-bottom: var(--spacing-24);
+  background-color: var(--color-blush);
+  border-radius: 12px;
+  color: var(--color-charcoal);
+}
+
+/* Kartu yang isinya disusun ke bawah, dengan bagian bawah selalu rata
+   (dipakai di portofolio, testimoni, dan kontak) */
+.card-aura--stack {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Garis tipis dan keterangan di bagian bawah kartu */
+.card-foot {
+  margin-top: auto;
+  padding-top: var(--spacing-16);
+  border-top: 1px solid var(--color-border);
+}
+
+/* Portofolio: kartu dengan gambar penuh di bagian atas */
+.portfolio-card {
+  padding: 0;
+  overflow: hidden;
+}
+.portfolio-card__image {
+  border-radius: 0;
+  aspect-ratio: 16 / 9;
+}
+.portfolio-card__body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: var(--spacing-24);
+}
+/* Jenis campaign di kiri dan jumlah influencer di kanan */
+.portfolio-card__meta {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--spacing-16);
+  font-size: var(--text-body-sm);
+}
+.portfolio-card__type { font-weight: 500; }
+
+/* Testimoni: foto bulat, nama, bintang, dan kutipan */
+.testimonial__head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.testimonial__avatar {
+  flex: none;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: rgba(46, 46, 46, 0.06);
+}
+.testimonial__name { font-weight: 500; }
+.testimonial__role {
+  font-size: var(--text-body-sm);
+  color: var(--color-text-muted);
+}
+.testimonial__stars {
+  margin: var(--spacing-16) 0 12px;
+  letter-spacing: 2px;
+}
+.testimonial__quote { margin-bottom: var(--spacing-24); }
+.testimonial__note {
+  font-size: var(--text-body-sm);
+  color: var(--color-text-muted);
+}
+
+/* Galeri Konten: kotak foto atau video dengan rasio sama */
+.gallery-item {
+  aspect-ratio: 16 / 10;
+}
+
+/* Footer: latar Charcoal dengan teks Ivory */
+.footer-aura {
+  background-color: var(--surface-footer);
+  color: var(--color-ivory);
+  padding-top: var(--spacing-64);
+}
+.footer-aura a {
+  color: rgba(250, 247, 244, 0.72);
+  transition: color 0.2s ease;
+}
+.footer-aura a:hover {
+  color: var(--color-blush);
+}
+.footer-aura__brand {
+  font-size: var(--text-subheading);
+  font-weight: 500;
+  color: var(--color-ivory);
+}
+.footer-aura__about {
+  max-width: 320px;
+  margin-top: var(--spacing-16);
+  font-size: var(--text-body-sm);
+  color: rgba(250, 247, 244, 0.72);
+}
+/* Judul kecil huruf kapital di atas tiap kolom link */
+.footer-aura__heading {
+  margin-bottom: var(--spacing-16);
+  font-size: var(--text-caption);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: rgba(250, 247, 244, 0.6);
+}
+.footer-aura__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: var(--text-body-sm);
+}
+.footer-aura__list li + li { margin-top: 12px; }
+.footer-aura__list strong {
+  font-weight: 500;
+  color: var(--color-ivory);
+}
+/* Baris hak cipta di paling bawah */
+.footer-aura__bottom {
+  margin-top: var(--spacing-48);
+  padding-block: var(--spacing-24);
+  border-top: 1px solid rgba(250, 247, 244, 0.16);
+  font-size: var(--text-body-sm);
+  color: rgba(250, 247, 244, 0.6);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .footer-aura a { transition: none; }
+}

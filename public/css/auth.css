@@ -1,0 +1,143 @@
+/* Gaya halaman Registrasi dan Login: latar, kartu formulir, kolom isian, dan pesan.
+   Hanya dimuat di halaman yang membutuhkannya. */
+
+/* Warna khusus pesan error. Ini satu-satunya warna di luar palet Aura Community. */
+:root {
+  --color-error: #B3261E;
+  --color-input-border: rgba(46, 46, 46, 0.5);
+}
+
+/* Area di bawah navbar: latar beige agar kartu ivory terlihat menonjol */
+.auth-page {
+  min-height: calc(100vh - 73px);
+  padding-block: clamp(var(--spacing-32), 6vw, var(--spacing-64));
+  background-color: var(--surface-band);
+}
+
+/* Kartu putih tempat formulir berada. Lebarnya diatur oleh variasi di bawah. */
+.auth-card {
+  width: 100%;
+  margin-inline: auto;
+  padding: clamp(var(--spacing-24), 4vw, var(--spacing-40));
+  background-color: var(--surface-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+}
+.auth-card--lebar  { max-width: 760px; }  /* untuk registrasi */
+.auth-card--sempit { max-width: 480px; }  /* untuk login */
+
+/* Label di atas kolom isian */
+.form-label-aura {
+  display: block;
+  margin-bottom: var(--spacing-8);
+  font-size: var(--text-body-sm);
+  font-weight: 500;
+}
+
+/* Kolom isian dan pilihan: menimpa tampilan bawaan Bootstrap */
+.auth-card .form-control,
+.auth-card .form-select {
+  padding: 12px 16px;
+  background-color: var(--color-white);
+  border: 1px solid var(--color-input-border);
+  border-radius: 12px;
+  font-size: var(--text-body);
+  color: var(--color-charcoal);
+}
+.auth-card .form-control::placeholder {
+  color: rgba(46, 46, 46, 0.45);
+}
+/* Saat dipilih: hapus cincin biru Bootstrap, garis fokus diatur di base.css */
+.auth-card .form-control:focus,
+.auth-card .form-select:focus {
+  border-color: var(--color-charcoal);
+  box-shadow: none;
+}
+/* Kolom yang salah diisi diberi garis merah */
+.auth-card .form-control.is-error,
+.auth-card .form-select.is-error {
+  border-color: var(--color-error);
+}
+
+/* Teks pesan error di bawah kolom */
+.field-error {
+  margin: 6px 0 0;
+  font-size: var(--text-body-sm);
+  color: var(--color-error);
+}
+
+/* Judul kecil huruf kapital untuk memisahkan bagian formulir (DATA DIRI, AKUN MEDIA SOSIAL) */
+.form-section-label {
+  margin: 0 0 var(--spacing-16);
+  font-size: var(--text-caption);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+.form-divider {
+  margin-block: var(--spacing-24);
+  border: 0;
+  border-top: 1px solid var(--color-border);
+  opacity: 1;
+}
+/* Nama platform (Instagram, TikTok) di dalam bagian media sosial */
+.form-platform-title {
+  margin: var(--spacing-16) 0 12px;
+  font-size: var(--text-body);
+  font-weight: 500;
+}
+
+/* Tombol "Lihat" di samping kolom password */
+.auth-card .input-toggle {
+  padding: 0 16px;
+  background-color: var(--surface-card);
+  border: 1px solid var(--color-input-border);
+  border-left: 0;
+  border-radius: 0 12px 12px 0;
+  font-size: var(--text-body-sm);
+  font-weight: 500;
+  color: var(--color-charcoal);
+  cursor: pointer;
+}
+.auth-card .input-toggle:hover {
+  background-color: var(--color-beige);
+}
+/* Kolom password yang punya tombol: sudut kanan dibuat rata */
+.auth-card .input-group > .form-control {
+  border-radius: 12px 0 0 12px;
+}
+
+/* Kotak pemberitahuan di atas formulir */
+.alert-aura {
+  margin-bottom: var(--spacing-24);
+  padding: var(--spacing-16);
+  border: 1px solid var(--color-blush);
+  border-radius: 12px;
+  background-color: rgba(219, 167, 177, 0.3);
+  font-size: var(--text-body-sm);
+}
+.alert-aura--error {
+  border-color: rgba(179, 38, 30, 0.45);
+  background-color: rgba(179, 38, 30, 0.07);
+}
+
+/* Teks kecil di bawah tombol (contoh: "Sudah punya akun? Login") */
+.auth-note {
+  margin: var(--spacing-24) 0 0;
+  text-align: center;
+  font-size: var(--text-body-sm);
+  color: var(--color-text-muted);
+}
+.auth-note a {
+  font-weight: 600;
+  color: var(--color-charcoal);
+  text-decoration: underline;
+}
+
+/* Keterangan kecil di bawah judul bagian formulir */
+.form-hint {
+  margin: 0;
+  font-size: var(--text-body-sm);
+  color: var(--color-text-muted);
+}

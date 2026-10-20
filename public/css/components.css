@@ -1,0 +1,116 @@
+/* Komponen yang dipakai berulang: tombol dan navbar.
+   Dimuat setelah base.css. */
+
+/* Tombol dasar berbentuk pil. Kita buat kelas sendiri (bukan .btn Bootstrap)
+   supaya bayangan dan sudut kotak bawaan Bootstrap tidak ikut. */
+.btn-aura {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-8);
+  padding: 12px 20px;
+  border: 1px solid transparent;
+  border-radius: var(--radius-button);
+  font-family: var(--font-sans);
+  font-size: var(--text-body);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* Tombol utama: Blush Pink, berubah jadi Mocha saat di-hover */
+.btn-aura--primary {
+  background-color: var(--color-blush);
+  color: var(--color-charcoal);
+}
+.btn-aura--primary:hover {
+  background-color: var(--color-mocha);
+  color: var(--color-white);
+}
+
+/* Tombol sekunder: hanya garis tepi, isinya transparan */
+.btn-aura--outline {
+  background-color: transparent;
+  color: var(--color-charcoal);
+  border-color: var(--color-charcoal);
+}
+.btn-aura--outline:hover {
+  background-color: var(--color-beige);
+  color: var(--color-charcoal);
+}
+
+/* Tombol versi kecil, dipakai di navbar */
+.btn-aura--sm {
+  padding: 10px 18px;
+  font-size: var(--text-body-sm);
+}
+
+/* Matikan animasi tombol bagi yang mengurangi animasi di perangkatnya */
+@media (prefers-reduced-motion: reduce) {
+  .btn-aura { transition: none; }
+}
+
+/* Navbar: warna navbar Bootstrap diganti dengan warna kita lewat variabelnya.
+   Tidak ada garis bawah dan bayangan, sesuai DESIGN.md. */
+.navbar-aura {
+  --bs-navbar-color: var(--color-charcoal);
+  --bs-navbar-hover-color: var(--color-charcoal);
+  --bs-navbar-active-color: var(--color-charcoal);
+  --bs-navbar-brand-color: var(--color-charcoal);
+  --bs-navbar-brand-hover-color: var(--color-charcoal);
+  --bs-navbar-toggler-border-color: var(--color-border);
+
+  background-color: var(--surface-page);
+  padding-block: var(--spacing-16);
+}
+
+/* Isi navbar: logo di kiri, menu dan tombol di kanan */
+.navbar-aura .container-aura {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Logo (sementara berupa tulisan) */
+.navbar-aura .navbar-brand {
+  font-size: var(--text-subheading);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  margin-right: var(--spacing-24);
+}
+
+/* Tautan menu. Saat di-hover muncul latar beige tipis. */
+.navbar-aura .nav-link {
+  padding: 8px 12px;
+  font-size: var(--text-body-sm);
+  font-weight: 400;
+  border-radius: var(--radius-button);
+  transition: background-color 0.2s ease;
+}
+.navbar-aura .nav-link:hover {
+  background-color: var(--color-beige);
+}
+
+/* Menu yang sedang aktif: sedikit lebih tebal, tanpa garis bawah */
+.navbar-aura .nav-link.active {
+  font-weight: 500;
+}
+
+/* Tombol hamburger (hanya muncul di layar kecil): hapus cincin bawaan Bootstrap */
+.navbar-aura .navbar-toggler:focus {
+  box-shadow: none;
+}
+
+/* Layar kecil: beri jarak di atas menu yang terbuka */
+@media (max-width: 1199.98px) {
+  .navbar-aura .navbar-collapse { padding-top: var(--spacing-16); }
+}
+
+/* Matikan animasi menu bagi yang mengurangi animasi di perangkatnya */
+@media (prefers-reduced-motion: reduce) {
+  .navbar-aura .nav-link { transition: none; }
+}

@@ -1,0 +1,114 @@
+/* Gaya dasar seluruh halaman: teks, judul, link, dan tata letak.
+   Dimuat setelah Bootstrap supaya gaya di sini yang dipakai. */
+
+/* Tampilan dasar halaman: font, warna teks, dan latar */
+body {
+  font-family: var(--font-sans);
+  font-size: var(--text-body);
+  line-height: 1.5;
+  letter-spacing: -0.02em;
+  color: var(--color-charcoal);
+  background-color: var(--surface-page);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Semua judul: mengembalikan gaya Bootstrap yang tebal ke gaya desain kita */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  color: var(--color-charcoal);
+  margin: 0;
+}
+
+/* Judul besar di hero. Ukurannya mengecil otomatis di layar HP. */
+.text-display {
+  font-size: clamp(2.25rem, 1.2rem + 4.5vw, var(--text-display));
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+}
+
+/* Judul tiap section (pakai font serif) */
+.text-heading-lg {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 1.2rem + 3vw, var(--text-heading-lg));
+  line-height: 1.2;
+  letter-spacing: -0.03em;
+}
+
+/* Judul di dalam kartu */
+.text-heading-sm {
+  font-size: var(--text-heading-sm);
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+}
+
+/* Paragraf pembuka di bawah judul */
+.text-lead {
+  font-size: var(--text-subheading);
+  line-height: 1.4;
+  color: var(--color-text-muted);
+}
+
+/* Teks berwarna lebih pudar untuk keterangan */
+.text-muted-aura { color: var(--color-text-muted); }
+
+/* Highlight pink di belakang satu kata dalam judul.
+   Dibuat sebagai strip di belakang teks karena teks pink di atas ivory sulit dibaca. */
+.hl {
+  background-image: linear-gradient(
+    transparent 58%,
+    var(--color-blush) 58%,
+    var(--color-blush) 92%,
+    transparent 92%
+  );
+  padding: 0 0.08em;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+
+/* Link: tanpa garis bawah, warna mengikuti teks di sekitarnya */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Garis fokus untuk pengguna yang berpindah elemen dengan tombol Tab */
+:focus-visible {
+  outline: 2px solid var(--color-charcoal);
+  outline-offset: 3px;
+}
+
+/* Pembungkus isi halaman: maksimal 1200px dan berada di tengah */
+.container-aura {
+  width: 100%;
+  max-width: var(--page-max-width);
+  margin-inline: auto;
+  padding-inline: var(--spacing-24);
+}
+
+/* Jarak atas-bawah setiap section */
+.section-aura {
+  padding-block: clamp(var(--spacing-48), 8vw, var(--spacing-80));
+}
+
+/* Latar beige untuk section yang selang-seling dengan latar ivory */
+.band-beige {
+  background-color: var(--surface-band);
+}
+
+/* Kartu: ivory dengan garis tipis, sudut 16px, tanpa bayangan */
+.card-aura {
+  background-color: var(--surface-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  padding: var(--spacing-32);
+}
+
+/* Gulir halus saat menu navbar diklik, dimatikan bagi yang mengurangi animasi */
+html {
+  scroll-behavior: smooth;
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}

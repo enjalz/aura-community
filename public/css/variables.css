@@ -1,0 +1,55 @@
+/* Daftar warna, font, ukuran, dan jarak yang dipakai di seluruh website.
+   Kalau ingin ganti warna, cukup ubah di file ini. */
+
+:root {
+  /* Warna utama website */
+  --color-ivory:    #FAF7F4;  /* latar halaman dan navbar */
+  --color-beige:    #E7DCCF;  /* latar section selang-seling */
+  --color-blush:    #DBA7B1;  /* tombol utama dan aksen */
+  --color-mocha:    #8E7564;  /* tombol saat di-hover */
+  --color-charcoal: #2E2E2E;  /* judul, teks, dan footer */
+  --color-white:    #FFFFFF;  /* teks tombol saat di-hover */
+
+  /* Teks sekunder dan garis tipis (turunan Charcoal, bukan warna baru) */
+  --color-text-muted: rgba(46, 46, 46, 0.72);
+  --color-border:     rgba(46, 46, 46, 0.14);
+
+  /* Warna berdasarkan fungsinya */
+  --surface-page:   var(--color-ivory);
+  --surface-band:   var(--color-beige);
+  --surface-card:   var(--color-ivory);
+  --surface-footer: var(--color-charcoal);
+
+  /* Font: Inter untuk antarmuka, Source Serif 4 hanya untuk judul besar */
+  --font-sans:  'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-serif: 'Source Serif 4', ui-serif, Georgia, Cambria, 'Times New Roman', serif;
+
+  /* Ukuran teks */
+  --text-caption:    12px;
+  --text-body-sm:    14px;
+  --text-body:       16px;
+  --text-subheading: 18px;
+  --text-heading-sm: 24px;
+  --text-heading:    32px;
+  --text-heading-lg: 48px;
+  --text-display:    56px;
+
+  /* Jarak (kelipatan 8px) */
+  --spacing-8:  8px;
+  --spacing-16: 16px;
+  --spacing-24: 24px;
+  --spacing-32: 32px;
+  --spacing-40: 40px;
+  --spacing-48: 48px;
+  --spacing-64: 64px;
+  --spacing-80: 80px;
+
+  /* Lengkung sudut */
+  --radius-card:   16px;
+  --radius-image:  24px;
+  --radius-badge:  30px;
+  --radius-button: 100px;  /* bentuk pil */
+
+  /* Lebar maksimal isi halaman */
+  --page-max-width: 1200px;
+}

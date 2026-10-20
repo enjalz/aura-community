@@ -1,0 +1,260 @@
+/* Gaya kerangka dashboard (Admin, Owner Brand, Influencer): sidebar, topbar, dan konten.
+   Hanya dimuat di halaman dashboard. */
+
+/* Susunan utama: sidebar di kiri, konten di kanan */
+.dash {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* Pembungkus sidebar. Di layar besar lebarnya tetap dan menempel saat halaman digulir. */
+@media (min-width: 992px) {
+  .dash-sidebar-wrap {
+    position: sticky;
+    top: 0;
+    flex: none;
+    width: 264px;
+    height: 100vh;
+    height: 100dvh;
+    overflow-y: auto;   /* kalau menu lebih tinggi dari layar, sidebar bisa digulir sendiri */
+    background-color: var(--surface-band);
+    border-right: 1px solid var(--color-border);
+  }
+}
+
+/* Di layar kecil sidebar menjadi panel geser (offcanvas Bootstrap) */
+.dash-sidebar {
+  --bs-offcanvas-width: 280px;
+  --bs-offcanvas-bg: var(--surface-band);
+  --bs-offcanvas-color: var(--color-charcoal);
+}
+
+/* Isi sidebar: logo di atas, menu di tengah, logout di bawah */
+.dash-sidebar__inner {
+  display: flex;
+  flex-direction: column;
+  padding: var(--spacing-24) var(--spacing-16);
+}
+/* Layar kecil (panel geser): isi sidebar memenuhi panel dan bisa digulir */
+@media (max-width: 991.98px) {
+  .dash-sidebar__inner {
+    flex: 1 1 auto;
+    overflow-y: auto;
+  }
+}
+/* Layar besar: isi sidebar minimal setinggi layar, supaya Logout tetap di dasar */
+@media (min-width: 992px) {
+  .dash-sidebar__inner { min-height: 100%; }
+}
+
+.dash-brand {
+  display: block;
+  margin-bottom: var(--spacing-24);
+  padding-inline: 12px;
+  font-size: var(--text-subheading);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+}
+
+/* Judul kelompok menu (PENGGUNA, CAMPAIGN, AKUN) */
+.dash-menu__group {
+  margin: 20px 0 6px;
+  padding-inline: 12px;
+  font-size: var(--text-caption);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+/* Satu menu. Menu aktif berlatar Blush Pink, menu belum tersedia tampil redup. */
+.dash-menu__item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 9px 12px;
+  border-radius: 12px;
+  font-size: var(--text-body-sm);
+  transition: background-color 0.2s ease;
+}
+a.dash-menu__item:hover {
+  background-color: rgba(46, 46, 46, 0.07);
+}
+.dash-menu__item.is-active {
+  background-color: var(--color-blush);
+  font-weight: 500;
+}
+.dash-menu__item.is-disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+/* Ikon kecil di sebelah kiri menu dan tombol Logout */
+.dash-icon {
+  flex: none;
+  width: 18px;
+  height: 18px;
+}
+
+/* Tombol logout menempel di bagian bawah sidebar */
+.dash-logout {
+  margin-top: auto;
+  padding-top: var(--spacing-24);
+}
+
+/* Kolom kanan: topbar dan isi halaman */
+.dash-main {
+  flex: 1;
+  min-width: 0;
+}
+
+.dash-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-16);
+  padding: var(--spacing-16) var(--spacing-32);
+  border-bottom: 1px solid var(--color-border);
+}
+.dash-topbar__left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.dash-title {
+  font-size: var(--text-heading-sm);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+}
+
+/* Tombol menu (hamburger) di topbar, hanya tampil di layar kecil */
+.dash-toggle {
+  padding: 8px 12px;
+  background: transparent;
+  border: 1px solid var(--color-charcoal);
+  border-radius: var(--radius-button);
+  font-size: var(--text-body-sm);
+  font-weight: 500;
+  cursor: pointer;
+}
+
+/* Nama dan peran pengguna di kanan atas */
+.dash-user {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-align: right;
+}
+.dash-user__name { font-size: var(--text-body-sm); font-weight: 500; }
+.dash-user__role { font-size: var(--text-caption); color: var(--color-text-muted); }
+.dash-avatar {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--color-blush);
+  font-weight: 600;
+}
+
+.dash-content {
+  padding: var(--spacing-32);
+}
+
+@media (max-width: 575.98px) {
+  .dash-topbar { padding-inline: var(--spacing-16); }
+  .dash-content { padding: var(--spacing-24) var(--spacing-16); }
+  .dash-user__text { display: none; }
+}
+
+/* Panel isi: kotak ivory dengan garis tipis */
+.panel-aura {
+  padding: var(--spacing-24);
+  background-color: var(--surface-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+}
+.panel-title {
+  margin: 0 0 var(--spacing-16);
+  font-size: var(--text-subheading);
+  font-weight: 500;
+}
+
+/* Banner status verifikasi: ikon, teks, dan label status */
+.status-banner {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-24);
+  padding: var(--spacing-24);
+  background-color: var(--surface-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+}
+.status-banner__icon {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background-color: var(--color-blush);
+}
+.status-banner__text { flex: 1; min-width: 0; }
+.status-banner__title { margin: 0 0 4px; font-size: var(--text-subheading); font-weight: 600; }
+.status-banner__desc { margin: 0; font-size: var(--text-body-sm); color: var(--color-text-muted); }
+
+@media (max-width: 767.98px) {
+  .status-banner { flex-wrap: wrap; }
+}
+
+/* Label status kecil berbentuk pil */
+.status-badge {
+  flex: none;
+  padding: 6px 14px;
+  border: 1px solid var(--color-charcoal);
+  border-radius: var(--radius-button);
+  font-size: var(--text-body-sm);
+  font-weight: 500;
+}
+.status-badge--menunggu { background-color: var(--color-beige); }
+.status-badge--diverifikasi { background-color: var(--color-blush); border-color: var(--color-blush); }
+.status-badge--ditolak {
+  border-color: var(--color-error);
+  color: var(--color-error);
+}
+
+/* Daftar data berpasangan: label di kiri, nilai di kanan */
+.data-list {
+  margin: 0;
+  background-color: var(--surface-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+}
+.data-list__row {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: var(--spacing-16);
+  padding: 14px var(--spacing-24);
+  font-size: var(--text-body-sm);
+}
+.data-list__row + .data-list__row { border-top: 1px solid var(--color-border); }
+.data-list dt { font-weight: 400; color: var(--color-text-muted); }
+.data-list dd { margin: 0; font-weight: 500; overflow-wrap: anywhere; }
+
+@media (max-width: 575.98px) {
+  .data-list__row { grid-template-columns: 1fr; gap: 2px; }
+}
+
+/* Kotak catatan di bawah data */
+.note-box {
+  padding: var(--spacing-16) var(--spacing-24);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  font-size: var(--text-body-sm);
+  color: var(--color-text-muted);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dash-menu__item { transition: none; }
+}
